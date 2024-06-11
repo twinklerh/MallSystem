@@ -7,7 +7,7 @@ import 'element-plus/dist/index.css'
 import zhCn from 'element-plus/es/locale/lang/zh-cn'
 import BoardIcon from '@/components/SVG/BoardIcon.vue'
 import CommodityIcon from './components/SVG/CommodityIcon.vue'
-
+import './style/index.scss'
 const pinia = createPinia();
 
 const app = createApp(App).use(router).use(pinia).use(ElementPlus, { locale: zhCn })

@@ -31,18 +31,30 @@ const router = createRouter({
             name: 'home',
             component: () => import('@/view/HomeView.vue'),
             meta: { requireAuth: true },
-            redirect: '/home/commodity',
+            redirect: '/home/board',
             children: [
-                {
-                    path: 'commodity',
-                    name: 'commodity',
-                    component: () => import('@/view/commodity/CommodityView.vue')
-                },
                 {
                     path: 'board',
                     name: 'board',
                     component: () => import('@/view/board/BoardView.vue')
-                }
+                },
+                {
+                    path: 'commodity',
+                    name: 'commodity',
+                    redirect: '/home/commodity/manage',
+                    children: [
+                        {
+                            path: 'add',
+                            name: 'add',
+                            component: () => import('@/view/commodity/ManageCommodityView.vue'),
+                        },
+                        {
+                            path: 'manage',
+                            name: 'manage',
+                            component: () => import('@/view/commodity/CommodityView.vue'),
+                        }
+                    ]
+                },
             ]
         },
     ]
